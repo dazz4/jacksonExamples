@@ -1,6 +1,7 @@
 package com.json.jackson.annotations;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -15,7 +16,7 @@ import javax.persistence.Id;
 @Getter
 @Setter
 @Component
-public class User {
+public class UserIgnore {
     @Id
     @GeneratedValue
     @JsonIgnore
