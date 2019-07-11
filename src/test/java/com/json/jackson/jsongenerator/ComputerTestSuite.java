@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -38,7 +37,7 @@ public class ComputerTestSuite {
 
         generator.writeStartObject();
         generator.writeStringField("cpu", computer.getCpu());
-        generator.writeStringField("cpu", computer.getGpu());
+        generator.writeStringField("gpu", computer.getGpu());
         generator.writeNumberField("ram", computer.getRam());
         generator.writeEndObject();
         generator.close();
@@ -47,7 +46,7 @@ public class ComputerTestSuite {
         String json = Files.readString(path);
 
         //Then
-        assertEquals("{\"cpu\":\"i7\",\"cpu\":\"geforce\",\"ram\":32}", json);
+        assertEquals("{\"cpu\":\"i7\",\"gpu\":\"geforce\",\"ram\":32}", json);
     }
 
 }
