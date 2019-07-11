@@ -3,7 +3,7 @@ package com.json.jackson.jsonnode;
 import org.springframework.stereotype.Component;
 
 @Component
-public class Car {
+public class Car extends Vehicle {
 
     private String model;
     private int gears;
@@ -30,5 +30,13 @@ public class Car {
 
     public void setGears(int gears) {
         this.gears = gears;
+    }
+
+    @Override
+    public String toString() {
+        return "Car{" +
+                "model='" + model + '\'' +
+                ", gears=" + gears +
+                '}';
     }
 }
