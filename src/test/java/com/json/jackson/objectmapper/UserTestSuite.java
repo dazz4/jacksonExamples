@@ -65,21 +65,21 @@ public class UserTestSuite {
         System.out.println(user.getName() + " " + user.getAge());
     }
 
-    @Test
-    public void testWriteValue() throws FileNotFoundException {
-        List<User> users = userRepository.findAll();
-        ObjectMapper mapper = new ObjectMapper();
-
-        try {
-
-            String userJson = mapper.writeValueAsString(users.get(1));
-            System.out.println(userJson);
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-    }
+//    @Test
+//    public void testWriteValue() throws FileNotFoundException {
+//        List<User> users = userRepository.findAll();
+//        ObjectMapper mapper = new ObjectMapper();
+//
+//        try {
+//
+//            String userJson = mapper.writeValueAsString(users.get(1));
+//            System.out.println(userJson);
+//
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//
+//    }
 
     @Test
     public void testUserSerializer() throws JsonProcessingException {
