@@ -1,3 +1,4 @@
 #!/bin/bash
 echo "Copying the war..."
+sudo sshfs -o allow_other root@192.168.0.53:/ /mnt/dazz4-server/
 scp build/libs/json-0.0.1-SNAPSHOT.war /mnt/dazz4-server/opt/tomcat/webapps/json.war
