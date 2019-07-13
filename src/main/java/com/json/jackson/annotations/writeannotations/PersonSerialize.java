@@ -1,4 +1,4 @@
-package com.json.jackson.annotations.readannotations;
+package com.json.jackson.annotations.writeannotations;
 
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 
