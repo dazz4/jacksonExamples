@@ -15,7 +15,7 @@ public class UserDeserializer extends StdDeserializer<User> {
     }
 
     @Override
-    public User deserialize(JsonParser p, DeserializationContext ctxt) throws IOException, JsonProcessingException {
+    public User deserialize(JsonParser p, DeserializationContext ctxt) throws IOException {
         User user = new User();
         while (!p.isClosed()) {
             JsonToken jsonToken = p.nextToken();

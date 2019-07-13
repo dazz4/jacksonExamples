@@ -15,7 +15,7 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -69,7 +69,7 @@ public class UserTestSuite {
     @Test
     public void testWriteValue() throws FileNotFoundException {
         List<User> users = new LinkedList<>();
-        users.add(new User(1L,"Kamil", 35));
+        users.add(new User(1L, "Kamil", 35));
 
         ObjectMapper mapper = new ObjectMapper();
 
