@@ -11,7 +11,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import java.io.IOException;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -31,6 +31,8 @@ public class CarTestSuite {
         ObjectMapper objectMapper = new ObjectMapper();
         //When
         JsonNode jsonNode = objectMapper.readTree(JSONCAR);
+        System.out.println(jsonNode.findValue("model"));
+
         //Then
         assertEquals("Fiat", jsonNode.get("model").asText());
     }
@@ -40,9 +42,11 @@ public class CarTestSuite {
         //Given
         ObjectMapper objectMapper = new ObjectMapper();
         JsonNode jsonNode = objectMapper.readTree(JSONCAR);
+
         //When
         String json = objectMapper.writeValueAsString(jsonNode);
         System.out.println(json);
+
         //Then
         assertEquals("{\"model\":\"Fiat\",\"gears\":5}", json);
     }
@@ -57,7 +61,9 @@ public class CarTestSuite {
         parentNode.put("wheels", 4);
 
         //When
-        String json = objectMapper.writeValueAsString(parentNode);
+        String json = objectMapper
+                .writerWithDefaultPrettyPrinter()
+                .writeValueAsString(parentNode);
         Vehicle carJson = objectMapper.readValue(json, Vehicle.class);
 
         //Then
