@@ -11,14 +11,14 @@ import org.springframework.test.context.junit4.SpringRunner;
 import java.io.IOException;
 import java.util.Map;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class JsonWriteAnnotationsTestSuite {
 
     @Test
-    public void testPersonInclude() throws Exception{
+    public void testPersonInclude() throws Exception {
         //Given
         PersonInclude person = new PersonInclude();
         ObjectMapper mapper = new ObjectMapper();
@@ -46,7 +46,7 @@ public class JsonWriteAnnotationsTestSuite {
     }
 
     @Test
-    public void testPersonAnyGetter() throws IOException{
+    public void testPersonAnyGetter() throws IOException {
         //Given
         PersonAnyGetter person = new PersonAnyGetter();
         Map<String, String> personDetails = person.getDetails();
@@ -71,7 +71,7 @@ public class JsonWriteAnnotationsTestSuite {
     }
 
     @Test
-    public void testJsonRawValue() throws IOException{
+    public void testJsonRawValue() throws IOException {
         //Given
         PersonRawValue person = new PersonRawValue();
         ObjectMapper mapper = new ObjectMapper();

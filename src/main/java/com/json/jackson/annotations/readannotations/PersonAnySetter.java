@@ -9,11 +9,11 @@ public class PersonAnySetter {
     private Map<String, Object> properties = new HashMap<>();
 
     @JsonAnySetter
-    public void set(String fieldName, Object value){
+    public void set(String fieldName, Object value) {
         this.properties.put(fieldName, value);
     }
 
-    public Object get(String fieldName){
+    public Object get(String fieldName) {
         return this.properties.get(fieldName);
     }
 }

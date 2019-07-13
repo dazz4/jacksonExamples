@@ -10,7 +10,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import java.io.IOException;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -61,7 +61,7 @@ public class JsonReadAnnotationsTestSuite {
     }
 
     @Test
-    public void testJsonAutoDetect() throws JsonProcessingException{
+    public void testJsonAutoDetect() throws JsonProcessingException {
         //Given
         PersonAutoDetect person = new PersonAutoDetect();
         ObjectMapper mapper = new ObjectMapper();
@@ -103,7 +103,7 @@ public class JsonReadAnnotationsTestSuite {
     }
 
     @Test
-    public void testJsonCreator() throws IOException{
+    public void testJsonCreator() throws IOException {
         //Given
         String json = "{\"id\":123,\"name\":\"Dariusz\"}";
         ObjectMapper mapper = new ObjectMapper();
@@ -117,7 +117,7 @@ public class JsonReadAnnotationsTestSuite {
     }
 
     @Test
-    public void testJacksonInject() throws IOException{
+    public void testJacksonInject() throws IOException {
         //Given
         String json = "{\"id\":123,\"name\":\"Dariusz\"}";
         InjectableValues inject = new InjectableValues.Std().addValue(String.class, "dazz4-server");
@@ -132,7 +132,7 @@ public class JsonReadAnnotationsTestSuite {
     }
 
     @Test
-    public void testPersonDeserializer() throws IOException{
+    public void testPersonDeserializer() throws IOException {
         //Given
         String json = "{\"id\":123,\"name\":\"Dariusz\"}";
         ObjectMapper mapper = new ObjectMapper();

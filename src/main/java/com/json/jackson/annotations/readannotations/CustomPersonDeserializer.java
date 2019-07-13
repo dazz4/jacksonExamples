@@ -11,7 +11,7 @@ import java.io.IOException;
 public class CustomPersonDeserializer extends JsonDeserializer<PersonDeserialize> {
 
     @Override
-    public PersonDeserialize deserialize(JsonParser p, DeserializationContext ctxt) throws IOException, JsonProcessingException {
+    public PersonDeserialize deserialize(JsonParser p, DeserializationContext ctxt) throws IOException {
         PersonDeserialize person = new PersonDeserialize();
 
         while (!p.isClosed()) {
