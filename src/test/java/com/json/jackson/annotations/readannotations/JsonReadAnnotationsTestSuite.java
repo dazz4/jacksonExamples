@@ -1,4 +1,4 @@
-package com.json.jackson.annotations;
+package com.json.jackson.annotations.readannotations;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.InjectableValues;
@@ -14,7 +14,7 @@ import static org.junit.Assert.*;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class JsonAnnotationsTestSuite {
+public class JsonReadAnnotationsTestSuite {
 
     private static final String JSONUSER = "{\"name\":\"Dariusz\",\"email\":\"kaminski.darek@icloud.com\"}";
 
