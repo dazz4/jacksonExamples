@@ -1,6 +1,7 @@
 package com.json.jackson.annotations;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.InjectableValues;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -73,4 +74,73 @@ public class JsonAnnotationsTestSuite {
         assertEquals("{\"id\":123,\"name\":\"Dariusz\"}", json);
     }
 
+    @Test
+    public void testJsonSetter() throws JsonProcessingException {
+        //Given
+        PersonSetter person = new PersonSetter();
+        ObjectMapper mapper = new ObjectMapper();
+
+        //When
+        String json = mapper.writeValueAsString(person);
+        System.out.println(json);
+
+        //Then
+        assertEquals("{\"name\":\"Dariusz\",\"id\":0}", json);
+    }
+
+    @Test
+    public void testJsonAnySetter() throws IOException {
+        //Given
+        String json = "{\"id\":123,\"name\":\"Dariusz\"}";
+        ObjectMapper mapper = new ObjectMapper();
+
+        //When
+        PersonAnySetter person = mapper.readValue(json, PersonAnySetter.class);
+
+        //Then
+        assertEquals("Dariusz", person.get("name"));
+        assertEquals(123, person.get("id"));
+    }
+
+    @Test
+    public void testJsonCreator() throws IOException{
+        //Given
+        String json = "{\"id\":123,\"name\":\"Dariusz\"}";
+        ObjectMapper mapper = new ObjectMapper();
+
+        //When
+        PersonCreator person = mapper.readValue(json, PersonCreator.class);
+
+        //Then
+        assertEquals(123L, person.getId());
+        assertEquals("Dariusz", person.getName());
+    }
+
+    @Test
+    public void testJacksonInject() throws IOException{
+        //Given
+        String json = "{\"id\":123,\"name\":\"Dariusz\"}";
+        InjectableValues inject = new InjectableValues.Std().addValue(String.class, "dazz4-server");
+
+        //When
+        PersonInject person = new ObjectMapper().reader(inject)
+                .forType(PersonInject.class)
+                .readValue(json);
+
+        //Then
+        assertEquals("dazz4-server", person.getSource());
+    }
+
+    @Test
+    public void testPersonDeserializer() throws IOException{
+        //Given
+        String json = "{\"id\":123,\"name\":\"Dariusz\"}";
+        ObjectMapper mapper = new ObjectMapper();
+
+        //When
+        PersonDeserialize person = mapper.readValue(json, PersonDeserialize.class);
+
+        //Then
+        assertEquals("Username: Dariusz", person.getName());
+    }
 }
