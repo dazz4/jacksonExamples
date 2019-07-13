@@ -1,10 +1,13 @@
 package com.json.jackson.objectmapper;
 
+import lombok.AllArgsConstructor;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+@AllArgsConstructor
 @Entity
 public class User {
     @Id

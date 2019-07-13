@@ -12,6 +12,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.LinkedList;
 import java.util.List;
 
 import static org.junit.Assert.*;
@@ -65,21 +66,23 @@ public class UserTestSuite {
         System.out.println(user.getName() + " " + user.getAge());
     }
 
-//    @Test
-//    public void testWriteValue() throws FileNotFoundException {
-//        List<User> users = userRepository.findAll();
-//        ObjectMapper mapper = new ObjectMapper();
-//
-//        try {
-//
-//            String userJson = mapper.writeValueAsString(users.get(1));
-//            System.out.println(userJson);
-//
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//
-//    }
+    @Test
+    public void testWriteValue() throws FileNotFoundException {
+        List<User> users = new LinkedList<>();
+        users.add(new User(1L,"Kamil", 35));
+
+        ObjectMapper mapper = new ObjectMapper();
+
+        try {
+
+            String userJson = mapper.writeValueAsString(users.get(0));
+            System.out.println(userJson);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
 
     @Test
     public void testUserSerializer() throws JsonProcessingException {
