@@ -50,9 +50,27 @@ public class JsonAnnotationsTestSuite {
         //Given
         PersonIgnoreType person = new PersonIgnoreType();
         ObjectMapper mapper = new ObjectMapper();
+
         //When
         String json = mapper.writeValueAsString(person);
         System.out.println(json);
+
+        //Then
+        assertEquals("{\"firstName\":\"Dariusz\",\"lastName\":\"Kaminski\"}", json);
+    }
+
+    @Test
+    public void testJsonAutoDetect() throws JsonProcessingException{
+        //Given
+        PersonAutoDetect person = new PersonAutoDetect();
+        ObjectMapper mapper = new ObjectMapper();
+
+        //When
+        String json = mapper.writeValueAsString(person);
+        System.out.println(json);
+
+        //Then
+        assertEquals("{\"id\":123,\"name\":\"Dariusz\"}", json);
     }
 
 }
